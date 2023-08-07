@@ -96,7 +96,6 @@ export class ApiLambdaCrudDynamoDBStack extends Stack {
         app: App,
         id: string,
     ): ApiLambdaCrudDynamoDBStack {
-        console.log('getInstance');
         if (!ApiLambdaCrudDynamoDBStack.instance) {
             ApiLambdaCrudDynamoDBStack.instance =
                 new ApiLambdaCrudDynamoDBStack(app, id);
