@@ -52,7 +52,6 @@ export class ApiLambdaCrudDynamoDBStack extends Stack {
             runtime: Runtime.NODEJS_16_X,
         };
 
-        console.log('DIRNAME', __dirname);
         // Lambda function
         this.customerUserLambda = new NodejsFunction(
             this,
