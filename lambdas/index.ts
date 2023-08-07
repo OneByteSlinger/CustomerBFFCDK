@@ -3,13 +3,10 @@ import { customerUserService } from '../services/customerUserService';
 
 exports.handler = async function (event: any) {
     const { httpMethod, path } = event;
-
-    switch (path) {
-        case '/customer':
-            return customerService(httpMethod, event);
-        case '/customer/user':
-            return customerUserService(httpMethod, event);
-        default:
-            return { statusCode: 400, body: 'invalid path' };
-    }
+    const splitPath = path.split('/');
+    if (splitPath[1] && splitPath[1] === 'user')
+        return customerUserService(httpMethod, event);
+    else if (!splitPath[1] && splitPath[0] === 'customer')
+        return customerService(httpMethod, event);
+    else return { statusCode: 400, body: 'invalid path' };
 };
